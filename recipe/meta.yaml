@@ -1,19 +1,19 @@
 {% set name = "watchme" %}
-{% set version = "0.0.27" %}
+{% set version = "0.0.28" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: dfa16800e670449ede9b10025bb322a42430802e03b67931af2ec17bcfc306f2
+  sha256: 73e76494f050c3ecd26efed6b57fc7616b27545f6ea02b8a3f13b5b76535fd19
 
 build:
   number: 0
   entry_points:
     - watchme=watchme.client:main
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
+  script: '{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv '
   noarch: python
 
 requirements:
@@ -52,7 +52,7 @@ test:
     - watchme.client.ls
     - watchme.client.run
     - watchme.client.schedule
-    - watchme.watchers 
+    - watchme.watchers
     - watchme.watchers.data
     - watchme.watchers.schedule
     - watchme.watchers.settings
