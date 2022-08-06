@@ -1,5 +1,5 @@
 {% set name = "watchme" %}
-{% set version = "0.0.28" %}
+{% set version = "0.0.29" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 73e76494f050c3ecd26efed6b57fc7616b27545f6ea02b8a3f13b5b76535fd19
+  sha256: 79d166cd6d2e5136f6d398b99d12777c7950d1a03868725d3250f99bb9de15d2
 
 build:
   number: 0
