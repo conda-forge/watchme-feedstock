@@ -6,11 +6,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 79d166cd6d2e5136f6d398b99d12777c7950d1a03868725d3250f99bb9de15d2
 
 build:
-  number: 0
+  number: 1
   entry_points:
     - watchme=watchme.client:main
   script: '{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv '
@@ -19,11 +19,11 @@ build:
 requirements:
   host:
     - pip
-    - python >=3
+    - python {{ python_min }}
     - setuptools
     - pytest-runner
   run:
-    - python >=3.6
+    - python >={{ python_min }}
     - python-crontab >=2.3.6
     - configparser >=3.5.3
     - requests >=2.21.0
@@ -32,6 +32,8 @@ requirements:
     - psutil >=5.4.3
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - watchme
     - watchme.config
